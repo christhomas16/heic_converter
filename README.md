@@ -37,13 +37,39 @@ A simple command-line tool to convert HEIC/HEIF images to JPG format.
 
 ## Usage
 
+### Option 1: Using the Shell Wrapper (Recommended)
+
+The `run.sh` script automatically manages the virtual environment and provides a convenient interface:
+
+```bash
+# Show help
+./run.sh --help
+
+# Convert a single file
+./run.sh convert photo.heic
+
+# Convert with custom quality
+./run.sh convert photo.heic -q 95
+
+# Batch convert all HEIC files in a directory
+./run.sh batch ./photos
+
+# Batch convert with options
+./run.sh batch ./photos -r -q 85 -p "*IMG*.heic"
+
+# Set up environment only
+./run.sh setup
+```
+
+### Option 2: Direct Python Execution
+
 **Important:** Make sure your virtual environment is activated before running the scripts.
 
 ```bash
 source .venv/bin/activate
 ```
 
-### Single File Conversion
+#### Single File Conversion
 
 Convert a single HEIC file to JPG:
 
@@ -64,7 +90,7 @@ Or use Python directly:
 python heic_to_jpg.py path/to/image.heic
 ```
 
-### Batch Conversion
+#### Batch Conversion
 
 The `batch_convert.py` script allows you to convert multiple files at once:
 
